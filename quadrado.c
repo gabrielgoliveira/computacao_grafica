@@ -21,6 +21,10 @@ void desenhaQuadrado(Quadrado quad) {
   glEnd();
 }
 
+void deformaQuadrado() {
+  quadrado.lados[1].x += 0.001;
+  quadrado.lados[2].x += 0.001;
+}
 void init() {
  glClearColor(0,0,0,0);
  gluOrtho2D(-20,20,-20,20);
@@ -46,6 +50,7 @@ void display() {
     glColor3f(0.7f, 0.5f, 0.4f);
      
     desenhaQuadrado(quadrado);
+    deformaQuadrado();
     glFlush();
   }
 }
@@ -55,7 +60,7 @@ int main(int argc, char ** argv) {
   glutInitWindowSize(800, 800);
   glutInitWindowPosition(0,0);
   glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
-  glutCreateWindow("Animação");
+  glutCreateWindow("Animacao");
   init();
   inicializaQuadrado(); 
   glutDisplayFunc(display); 
